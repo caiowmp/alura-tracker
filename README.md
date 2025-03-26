@@ -1,2 +1,24 @@
 # alura-tracker
-Durante o curso nós vamos desenvolver o Alura Tracker, essa aplicação que vai calcular o tempo gasto em cada tarefa. Então ele vai fazer o tracking, vai calcular o tempo que levamos em cada tarefa executada.
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
