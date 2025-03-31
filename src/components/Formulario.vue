@@ -58,7 +58,6 @@ export default defineComponent({
     salvarTarefa(tempoEmSegundos: number): void {
       const projeto = this.projetos.find((p) => p.id == this.idProjeto);
       if (!projeto) {
-        console.log("oi");
         this.store.commit(NOTIFICAR, {
           titulo: "Ops!",
           texto: "Selecione um projeto antes de finalizar a tarefa!",
@@ -79,6 +78,7 @@ export default defineComponent({
     const store = useStore(key);
     return {
       projetos: computed(() => store.state.projetos),
+      store,
     };
   },
 });
