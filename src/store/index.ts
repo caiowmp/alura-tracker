@@ -8,6 +8,8 @@ import {
   NOTIFICAR,
 } from "./tipo-mutacoes";
 import { INotificacao } from "@/interfaces/INotificacao";
+import { OBTER_PROJETOS } from "./tipo-acoes";
+import http from "@/http";
 
 interface Estado {
   projetos: IProjeto[];
@@ -45,6 +47,11 @@ export const store = createStore<Estado>({
           (notificacao) => notificacao.id != novaNotificacao.id
         );
       }, 3000);
+    },
+  },
+  actions: {
+    [OBTER_PROJETOS]({ commit }) {
+      http.get("projetos").then((response) => console.log(response.data));
     },
   },
 });
