@@ -9,7 +9,7 @@ import {
   NOTIFICAR,
 } from "./tipo-mutacoes";
 import { INotificacao } from "@/interfaces/INotificacao";
-import { OBTER_PROJETOS } from "./tipo-acoes";
+import { CADASTRAR_PROJETO, OBTER_PROJETOS, ALTERAR_PROJETO, REMOVER_PROJETO } from "./tipo-acoes";
 import http from "@/http";
 
 interface Estado {
@@ -58,6 +58,16 @@ export const store = createStore<Estado>({
       http.get("projetos")
       .then((response) => commit(DEFINIR_PROJETOS, response.data));
     },
+    [CADASTRAR_PROJETO](context, nomeDoProjeto: string) {
+      return http.post("/projetos", { nome: nomeDoProjeto})
+    },
+    [ALTERAR_PROJETO](context, projeto: IProjeto) {
+      return http.put(`/projetos/${projeto.id}`, projeto)
+    },
+    [REMOVER_PROJETO]({commit}, id: string) {
+      return http.delete(`/projetos/${id}`)
+      .then(() => commit(EXCLUIR_PROJETO, id))
+    }
   },
 });
 
