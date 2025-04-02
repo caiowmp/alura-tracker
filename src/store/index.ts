@@ -4,6 +4,7 @@ import { InjectionKey } from "vue";
 import {
   ADICIONA_PROJETO,
   ALTERA_PROJETO,
+  DEFINIR_PROJETOS,
   EXCLUIR_PROJETO,
   NOTIFICAR,
 } from "./tipo-mutacoes";
@@ -38,6 +39,9 @@ export const store = createStore<Estado>({
     [EXCLUIR_PROJETO](state, id: string) {
       state.projetos = state.projetos.filter((proj) => proj.id != id);
     },
+    [DEFINIR_PROJETOS](state, projetos: IProjeto[]) {
+      state.projetos = projetos    
+    },
     [NOTIFICAR](state, novaNotificacao: INotificacao) {
       novaNotificacao.id = new Date().getTime();
       state.notificacoes.push(novaNotificacao);
@@ -51,7 +55,8 @@ export const store = createStore<Estado>({
   },
   actions: {
     [OBTER_PROJETOS]({ commit }) {
-      http.get("projetos").then((response) => console.log(response.data));
+      http.get("projetos")
+      .then((response) => commit(DEFINIR_PROJETOS, response.data));
     },
   },
 });
