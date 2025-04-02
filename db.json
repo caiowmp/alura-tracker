@@ -18,7 +18,7 @@
     {
       "id": "5b07",
       "duracaoEmSegundos": 2,
-      "descricao": "teste",
+      "descricao": "teste de edição e",
       "projeto": {
         "id": 1,
         "nome": "Alura Tracker"
