@@ -33,11 +33,6 @@ export default defineComponent({
       required: true,
     },
   },
-  methods: {
-    tarefaClicada() : void {
-      this.$emit('aoTarefaClicada', this.tarefa);
-    }
-  },
   computed: {
     tempoGasto(): string {
       return new Date(this.tarefa.duracaoEmSegundos * 1000)
@@ -45,6 +40,15 @@ export default defineComponent({
         .substr(11, 8);
     },
   },
+  setup(props, { emit }){
+    const tarefaClicada = () : void => {
+      emit('aoTarefaClicada', props.tarefa);
+    }
+
+    return {
+      tarefaClicada
+    }
+  }
 });
 </script>
 
