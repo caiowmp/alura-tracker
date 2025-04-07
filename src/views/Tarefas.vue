@@ -14,10 +14,7 @@
       </p>
     </div>
     <Tarefa v-for="(tarefa, index) in tarefas" :tarefa="tarefa" :key="index" @aoTarefaClicada="selecionarTarefa" />
-  </div>
-  <div class="modal" :class="{ 'is-active': tarefaSelecionada }" v-if="tarefaSelecionada">
-    <div class="modal-background"></div>
-    <div class="modal-card">
+    <Modal :mostrar="tarefaSelecionada != null">
       <header class="modal-card-head">
         <p class="modal-card-title">Editando uma tarefa</p>
         <button @click="fecharModal" class="delete" aria-label="close"></button>
@@ -34,7 +31,7 @@
         <button @click="alterarTarefa" class="button is-success">Salvar alterações</button>
         <button @click="fecharModal" class="button">Cancelar</button>
       </footer>
-    </div>
+    </Modal>
   </div>
 </template>
 
@@ -46,6 +43,7 @@ import Box from "../components/Box.vue";
 import ITarefa from "../interfaces/ITarefa";
 import { ALTERAR_TAREFA, CADASTRAR_TAREFA, OBTER_PROJETOS, OBTER_TAREFAS } from "@/store/tipo-acoes";
 import { useStore } from "@/store";
+import Modal from "@/components/Modal.vue";
 
 export default defineComponent({
   name: "App",
@@ -53,6 +51,7 @@ export default defineComponent({
     Formulario,
     Tarefa,
     Box,
+    Modal
   },
   data() {
     return {
