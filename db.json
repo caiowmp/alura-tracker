@@ -1,28 +1,4 @@
 {
-  "projetos": [
-    {
-      "id": "331a",
-      "nome": "asdasdasdasdaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    }
-  ],
-  "tarefas": [
-    {
-      "id": 1,
-      "duracaoEmSegundos": 10,
-      "descricao": "Testando mock API",
-      "projeto": {
-        "id": 1,
-        "Nome": "Alura Tracker"
-      }
-    },
-    {
-      "id": "5b07",
-      "duracaoEmSegundos": 2,
-      "descricao": "teste de edição e",
-      "projeto": {
-        "id": 1,
-        "nome": "Alura Tracker"
-      }
-    }
-  ]
+  "projetos": [],
+  "tarefas": []
 }
